@@ -65,4 +65,17 @@ describe('LocalStorageRepository', () => {
       expect(result).toEqual([]);
     });
   });
+
+  describe('disclaimer', () => {
+    it('getDisclaimerAcknowledged retourne false quand le flag est absent', async () => {
+      const result = await repo.getDisclaimerAcknowledged();
+      expect(result).toBe(false);
+    });
+
+    it('getDisclaimerAcknowledged retourne true après setDisclaimerAcknowledged', async () => {
+      await repo.setDisclaimerAcknowledged();
+      const result = await repo.getDisclaimerAcknowledged();
+      expect(result).toBe(true);
+    });
+  });
 });

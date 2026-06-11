@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { AppContextProvider } from './context/AppContext';
 import AppRoutes from './routes/AppRoutes';
+import DisclaimerModal from './components/DisclaimerModal';
+import { localStorageRepository } from './repositories/LocalStorageRepository';
 
 function App() {
   const [isDark, setIsDark] = useState<boolean>(() => {
@@ -9,10 +11,24 @@ function App() {
     return saved !== null ? saved === 'dark' : true; // dark par défaut
   });
 
+  const [showDisclaimer, setShowDisclaimer] = useState(false);
+
   useEffect(() => {
     document.documentElement.classList.toggle('dark', isDark);
     localStorage.setItem('theme', isDark ? 'dark' : 'light');
   }, [isDark]);
+
+  useEffect(() => {
+    localStorageRepository.getDisclaimerAcknowledged().then((acknowledged) => {
+      if (!acknowledged) setShowDisclaimer(true);
+    });
+  }, []);
+
+  const handleAcknowledge = () => {
+    localStorageRepository.setDisclaimerAcknowledged().then(() => {
+      setShowDisclaimer(false);
+    });
+  };
 
   return (
     <BrowserRouter>
@@ -36,6 +52,7 @@ function App() {
             <AppRoutes />
           </main>
         </div>
+        {showDisclaimer && <DisclaimerModal onAcknowledge={handleAcknowledge} />}
       </AppContextProvider>
     </BrowserRouter>
   );

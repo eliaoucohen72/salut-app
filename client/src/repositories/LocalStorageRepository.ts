@@ -5,6 +5,7 @@ import type { Conversation } from '../types';
 
 const PROFILE_KEY = 'coach_profile';
 const CONVERSATIONS_KEY = 'coach_conversations';
+const DISCLAIMER_KEY = 'coach_disclaimer_acknowledged';
 
 export class LocalStorageRepository implements StorageRepository {
   async getProfile(): Promise<Profile | null> {
@@ -42,6 +43,14 @@ export class LocalStorageRepository implements StorageRepository {
     const conversations = await this.listConversations();
     const updated = conversations.filter((c) => c.id !== id);
     localStorage.setItem(CONVERSATIONS_KEY, JSON.stringify(updated));
+  }
+
+  async getDisclaimerAcknowledged(): Promise<boolean> {
+    return localStorage.getItem(DISCLAIMER_KEY) === 'true';
+  }
+
+  async setDisclaimerAcknowledged(): Promise<void> {
+    localStorage.setItem(DISCLAIMER_KEY, 'true');
   }
 }
 

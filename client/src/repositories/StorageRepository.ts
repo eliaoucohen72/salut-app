@@ -8,4 +8,6 @@ export interface StorageRepository {
   getConversation(id: string): Promise<Conversation | null>;
   saveConversation(conversation: Conversation): Promise<void>;
   deleteConversation(id: string): Promise<void>;
+  getDisclaimerAcknowledged(): Promise<boolean>;
+  setDisclaimerAcknowledged(): Promise<void>;
 }
