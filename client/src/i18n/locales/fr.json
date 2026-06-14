@@ -1,0 +1,52 @@
+{
+  "common": {
+    "appTitle": "Salut Coach"
+  },
+  "theme": {
+    "toLight": "Passer en mode clair",
+    "toDark": "Passer en mode sombre",
+    "light": "☀️ Clair",
+    "dark": "🌙 Sombre"
+  },
+  "disclaimer": {
+    "title": "Avertissement médical",
+    "body": "Flex, votre coach IA, fournit des conseils généraux de fitness et de nutrition à titre informatif uniquement. Il ne fournit pas de diagnostic médical et ne remplace pas l'avis d'un professionnel de santé. Consultez un médecin pour toute préoccupation médicale avant de suivre ces conseils.",
+    "acknowledge": "J'ai compris"
+  },
+  "onboarding": {
+    "welcome": "Bienvenue !",
+    "next": "Suivant",
+    "submit": "Valider",
+    "skip": "Passer pour l'instant",
+    "steps": {
+      "age": { "label": "Âge", "question": "Quel âge as-tu ?" },
+      "gender": { "label": "Genre", "question": "Quel est ton genre ?" },
+      "weight": { "label": "Poids (kg)", "question": "Quel est ton poids actuel (en kg) ?" },
+      "goal": { "label": "Objectif", "question": "Quel est ton objectif principal ?" },
+      "activityLevel": { "label": "Niveau d'activité", "question": "Quel est ton niveau d'activité ?" },
+      "dietaryRestrictions": { "label": "Restrictions alimentaires", "question": "As-tu des restrictions alimentaires ? (séparées par des virgules)" }
+    }
+  },
+  "profile": {
+    "title": "Mon profil",
+    "save": "Enregistrer",
+    "confirmation": "Profil mis à jour avec succès.",
+    "fields": {
+      "name": "Nom",
+      "gender": "Genre",
+      "goal": "Objectif",
+      "activityLevel": "Niveau d'activité",
+      "age": "Âge",
+      "weight": "Poids (kg)",
+      "dietaryRestrictions": "Restrictions alimentaires"
+    },
+    "errors": {
+      "agePositive": "L'âge doit être un nombre supérieur à 0",
+      "weightPositive": "Le poids doit être un nombre supérieur à 0"
+    }
+  },
+  "chat": {
+    "title": "Chat",
+    "placeholder": "Interface de chat — à implémenter en Story 2.3"
+  }
+}

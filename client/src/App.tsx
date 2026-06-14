@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { BrowserRouter } from 'react-router-dom';
 import { AppContextProvider } from './context/AppContext';
 import AppRoutes from './routes/AppRoutes';
@@ -6,6 +7,7 @@ import DisclaimerModal from './components/DisclaimerModal';
 import { localStorageRepository } from './repositories/LocalStorageRepository';
 
 function App() {
+  const { t } = useTranslation();
   const [isDark, setIsDark] = useState<boolean>(() => {
     const saved = localStorage.getItem('theme');
     return saved !== null ? saved === 'dark' : true; // dark par défaut
@@ -36,14 +38,14 @@ function App() {
         <div className="flex flex-col h-full bg-navy-950 text-warm-white dark:bg-navy-950 dark:text-warm-white">
           {/* Header */}
           <header className="flex items-center justify-between px-6 py-3 bg-navy-900 border-b border-navy-700">
-            <span className="text-accent font-semibold text-lg">Salut Coach</span>
+            <span className="text-accent font-semibold text-lg">{t('common.appTitle')}</span>
             <button
               type="button"
               onClick={() => setIsDark((d) => !d)}
-              aria-label={isDark ? 'Passer en mode clair' : 'Passer en mode sombre'}
+              aria-label={isDark ? t('theme.toLight') : t('theme.toDark')}
               className="px-3 py-1.5 rounded text-sm border border-navy-700 hover:border-accent transition-colors"
             >
-              {isDark ? '☀️ Clair' : '🌙 Sombre'}
+              {isDark ? t('theme.light') : t('theme.dark')}
             </button>
           </header>
 

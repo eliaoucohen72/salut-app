@@ -36,7 +36,7 @@
 # - Dev moves story to 'review', then runs code-review (fresh context, different LLM recommended)
 
 generated: 2026-06-11T12:00:00Z
-last_updated: 2026-06-11T20:00:00Z
+last_updated: 2026-06-14T00:00:00Z
 project: salut-app
 project_key: NOKEY
 tracking_system: file-system
@@ -48,15 +48,15 @@ development_status:
   1-1-scaffold-du-projet-et-shell-applicatif: done
   1-2-repository-de-stockage-et-schema-de-profil: review
   1-3-modale-de-disclaimer-medical: review
-  1-4-flow-donboarding-conversationnel: backlog
-  1-5-visualisation-et-edition-du-profil: backlog
-  1-6-infrastructure-i18n-initialisation-et-traductions-epic-1: backlog
+  1-4-flow-donboarding-conversationnel: review
+  1-5-visualisation-et-edition-du-profil: review
+  1-6-infrastructure-i18n-initialisation-et-traductions-epic-1: review
   epic-1-retrospective: optional
 
   # Epic 2: Conversations avec le Coach IA
-  epic-2: backlog
-  2-1-fondations-backend-de-lapi-chat: backlog
-  2-2-integration-groq-avec-streaming-et-retry: backlog
+  epic-2: in-progress
+  2-1-fondations-backend-de-lapi-chat: review
+  2-2-integration-groq-avec-streaming-et-retry: review
   2-3-interface-de-chat-avec-streaming-et-memoire: backlog
   epic-2-retrospective: optional
 

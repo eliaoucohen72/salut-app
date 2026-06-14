@@ -26,7 +26,26 @@
       "Bash(git fetch *)",
       "Bash(git ls-remote *)",
       "Bash(git commit *)",
-      "Bash(npm test *)"
+      "Bash(npm test *)",
+      "Bash(ls -la server/)",
+      "Bash(ls server/src)",
+      "Bash(cat server/package.json)",
+      "Bash(cat .env.example)",
+      "Bash(cat .gitignore)",
+      "Bash(cat tsconfig.json)",
+      "Bash(cat ../.env.example)",
+      "Bash(cat ../client/src/schemas/profile.schema.ts)",
+      "Bash(cat server/.env.example)",
+      "Bash(find . -iname \"*PRD*\" -not -path \"*/node_modules/*\")",
+      "Bash(npm view *)",
+      "Bash(find . -name \"project-context.md\" -not -path \"*/node_modules/*\")",
+      "Bash(cat _bmad/bmm/config.yaml)",
+      "Bash(cat server/.env)",
+      "Bash(find node_modules/groq-sdk -maxdepth 3 -iname \"*error*\")",
+      "Bash(find node_modules/groq-sdk -maxdepth 2 -type d)",
+      "Bash(cp .env.example server/.env)",
+      "Bash(git check-ignore *)",
+      "Bash(git stash *)"
     ]
   }
 }

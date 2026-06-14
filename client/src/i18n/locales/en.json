@@ -1,0 +1,52 @@
+{
+  "common": {
+    "appTitle": "Salut Coach"
+  },
+  "theme": {
+    "toLight": "Switch to light mode",
+    "toDark": "Switch to dark mode",
+    "light": "☀️ Light",
+    "dark": "🌙 Dark"
+  },
+  "disclaimer": {
+    "title": "Medical disclaimer",
+    "body": "Flex, your AI coach, provides general fitness and nutrition advice for informational purposes only. It does not provide medical diagnoses and is not a substitute for professional medical advice. Consult a doctor for any medical concerns before following this advice.",
+    "acknowledge": "Got it"
+  },
+  "onboarding": {
+    "welcome": "Welcome!",
+    "next": "Next",
+    "submit": "Submit",
+    "skip": "Skip for now",
+    "steps": {
+      "age": { "label": "Age", "question": "How old are you?" },
+      "gender": { "label": "Gender", "question": "What is your gender?" },
+      "weight": { "label": "Weight (kg)", "question": "What is your current weight (in kg)?" },
+      "goal": { "label": "Goal", "question": "What is your main goal?" },
+      "activityLevel": { "label": "Activity level", "question": "What is your activity level?" },
+      "dietaryRestrictions": { "label": "Dietary restrictions", "question": "Do you have any dietary restrictions? (comma-separated)" }
+    }
+  },
+  "profile": {
+    "title": "My profile",
+    "save": "Save",
+    "confirmation": "Profile updated successfully.",
+    "fields": {
+      "name": "Name",
+      "gender": "Gender",
+      "goal": "Goal",
+      "activityLevel": "Activity level",
+      "age": "Age",
+      "weight": "Weight (kg)",
+      "dietaryRestrictions": "Dietary restrictions"
+    },
+    "errors": {
+      "agePositive": "Age must be a number greater than 0",
+      "weightPositive": "Weight must be a number greater than 0"
+    }
+  },
+  "chat": {
+    "title": "Chat",
+    "placeholder": "Chat interface — to be implemented in Story 2.3"
+  }
+}
