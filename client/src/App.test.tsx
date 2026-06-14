@@ -56,7 +56,7 @@ describe('App', () => {
     fireEvent.change(select, { target: { value: 'en' } });
 
     await waitFor(() => {
-      expect(screen.getByText('Salut Coach')).toBeInTheDocument();
+      expect(screen.getByText('Life Coach AI')).toBeInTheDocument();
       expect(screen.getByRole('button', { name: /switch to/i })).toBeInTheDocument();
     });
   });

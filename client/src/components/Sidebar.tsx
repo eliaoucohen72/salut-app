@@ -27,20 +27,20 @@ export default function Sidebar({
   );
 
   return (
-    <div className="flex w-64 flex-col border-e border-navy-700 bg-navy-900">
+    <div className="flex w-64 flex-col border-e border-light-border bg-light-surface dark:border-navy-700 dark:bg-navy-900">
       <div className="flex flex-col gap-2 p-2">
-        <span className="px-1 text-sm font-semibold text-warm-white">{t('sidebar.title')}</span>
+        <span className="px-1 text-sm font-semibold text-light-text dark:text-warm-white">{t('sidebar.title')}</span>
         <button
           type="button"
           onClick={onNewConversation}
-          className="rounded-lg bg-navy-800 px-3 py-1 text-sm text-warm-white"
+          className="rounded-lg bg-light-bg border border-light-border px-3 py-1 text-sm text-light-text dark:bg-navy-800 dark:border-transparent dark:text-warm-white"
         >
           {t('chat.newConversation')}
         </button>
       </div>
       <div className="flex-1 overflow-y-auto">
         {sortedConversations.length === 0 ? (
-          <p className="px-3 py-2 text-sm text-warm-white">{t('sidebar.empty')}</p>
+          <p className="px-3 py-2 text-sm text-light-text-muted dark:text-warm-white">{t('sidebar.empty')}</p>
         ) : (
           <ul>
             {sortedConversations.map((conversation) => (
@@ -51,8 +51,8 @@ export default function Sidebar({
                   aria-current={conversation.id === activeConversationId ? 'true' : undefined}
                   className={`flex flex-1 flex-col items-start gap-0.5 border-s-2 px-3 py-2 text-start ${
                     conversation.id === activeConversationId
-                      ? 'border-accent bg-navy-800 text-accent'
-                      : 'border-transparent text-warm-white'
+                      ? 'border-accent bg-light-bg text-accent dark:bg-navy-800'
+                      : 'border-transparent text-light-text dark:text-warm-white'
                   }`}
                 >
                   <span className="truncate w-full text-sm">{conversation.title}</span>
@@ -67,7 +67,7 @@ export default function Sidebar({
                     event.stopPropagation();
                     setConfirmDeleteId(conversation.id);
                   }}
-                  className="px-2 text-warm-white"
+                  className="px-2 text-light-text dark:text-warm-white"
                 >
                   🗑
                 </button>

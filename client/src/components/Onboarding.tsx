@@ -65,7 +65,7 @@ export default function Onboarding() {
 
   return (
     <div className="flex flex-col items-center justify-center min-h-full p-8">
-      <div className="max-w-md w-full bg-navy-900 border border-navy-700 rounded-lg p-6 text-warm-white">
+      <div className="max-w-md w-full bg-light-bg border border-light-border rounded-lg p-6 text-light-text dark:bg-navy-900 dark:border-navy-700 dark:text-warm-white">
         <h1 className="text-lg font-semibold text-accent mb-3">{t('onboarding.welcome')}</h1>
         <p className="text-sm mb-4">{t(`onboarding.steps.${step.key}.question`)}</p>
 
@@ -77,7 +77,7 @@ export default function Onboarding() {
           type={step.type}
           value={inputValue}
           onChange={(e) => setInputValue(e.target.value)}
-          className="w-full mb-4 px-3 py-2 rounded bg-navy-950 border border-navy-700 text-warm-white focus:outline-none focus:border-accent"
+          className="w-full mb-4 px-3 py-2 rounded bg-light-surface border border-light-border text-light-text focus:outline-none focus:border-accent dark:bg-navy-950 dark:border-navy-700 dark:text-warm-white"
         />
 
         <button
@@ -91,7 +91,7 @@ export default function Onboarding() {
         <button
           type="button"
           onClick={handleSkip}
-          className="w-full px-4 py-2 rounded text-sm border border-navy-700 hover:border-accent transition-colors"
+          className="w-full px-4 py-2 rounded text-sm border border-light-border hover:border-accent transition-colors dark:border-navy-700"
         >
           {t('onboarding.skip')}
         </button>

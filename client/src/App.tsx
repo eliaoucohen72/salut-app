@@ -58,9 +58,9 @@ function AppShell() {
   };
 
   return (
-    <div className="flex flex-col h-full bg-navy-950 text-warm-white dark:bg-navy-950 dark:text-warm-white">
+    <div className="flex flex-col h-full bg-light-bg text-light-text dark:bg-navy-950 dark:text-warm-white">
       {/* Header */}
-      <header className="flex items-center justify-between px-6 py-3 bg-navy-900 border-b border-navy-700">
+      <header className="flex items-center justify-between px-6 py-3 bg-light-surface border-b border-light-border dark:bg-navy-900 dark:border-navy-700">
         <span className="text-accent font-semibold text-lg">{t('common.appTitle')}</span>
         <div className="flex items-center gap-2">
           <LanguageSelector onChangeLanguage={handleChangeLanguage} />
@@ -68,7 +68,7 @@ function AppShell() {
             type="button"
             onClick={() => setIsDark((d) => !d)}
             aria-label={isDark ? t('theme.toLight') : t('theme.toDark')}
-            className="px-3 py-1.5 rounded text-sm border border-navy-700 hover:border-accent transition-colors"
+            className="px-3 py-1.5 rounded text-sm border border-light-border hover:border-accent dark:border-navy-700 transition-colors"
           >
             {isDark ? t('theme.light') : t('theme.dark')}
           </button>

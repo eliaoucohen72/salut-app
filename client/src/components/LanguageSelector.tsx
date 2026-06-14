@@ -12,7 +12,7 @@ export default function LanguageSelector({ onChangeLanguage }: LanguageSelectorP
       aria-label={t('language.selectorLabel')}
       value={i18n.language}
       onChange={(e) => onChangeLanguage(e.target.value)}
-      className="rounded border border-navy-700 bg-navy-900 px-3 py-1.5 text-sm text-warm-white focus:outline-none focus:border-accent"
+      className="rounded border border-light-border bg-light-bg px-3 py-1.5 text-sm text-light-text focus:outline-none focus:border-accent dark:border-navy-700 dark:bg-navy-900 dark:text-warm-white"
     >
       <option value="fr">Français</option>
       <option value="he">עברית</option>

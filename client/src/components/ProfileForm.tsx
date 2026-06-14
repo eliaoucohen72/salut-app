@@ -85,7 +85,7 @@ export default function ProfileForm() {
     <div className="flex flex-col items-center justify-center min-h-full p-8">
       <form
         onSubmit={handleSubmit}
-        className="max-w-md w-full bg-navy-900 border border-navy-700 rounded-lg p-6 text-warm-white"
+        className="max-w-md w-full bg-light-bg border border-light-border rounded-lg p-6 text-light-text dark:bg-navy-900 dark:border-navy-700 dark:text-warm-white"
       >
         <h1 className="text-lg font-semibold text-accent mb-3">{t('profile.title')}</h1>
 
@@ -103,7 +103,7 @@ export default function ProfileForm() {
               type="text"
               value={(formData[key] as string) ?? ''}
               onChange={(e) => handleTextChange(key, e.target.value)}
-              className="w-full px-3 py-2 rounded bg-navy-950 border border-navy-700 text-warm-white focus:outline-none focus:border-accent"
+              className="w-full px-3 py-2 rounded bg-light-surface border border-light-border text-light-text focus:outline-none focus:border-accent dark:bg-navy-950 dark:border-navy-700 dark:text-warm-white"
             />
             {errors[key] && <p className="mt-1 text-sm text-red-400">{errors[key]}</p>}
           </div>
@@ -119,7 +119,7 @@ export default function ProfileForm() {
               type="number"
               value={formData[key] ?? ''}
               onChange={(e) => handleNumberChange(key, e.target.value)}
-              className="w-full px-3 py-2 rounded bg-navy-950 border border-navy-700 text-warm-white focus:outline-none focus:border-accent"
+              className="w-full px-3 py-2 rounded bg-light-surface border border-light-border text-light-text focus:outline-none focus:border-accent dark:bg-navy-950 dark:border-navy-700 dark:text-warm-white"
             />
             {errors[key] && <p className="mt-1 text-sm text-red-400">{errors[key]}</p>}
           </div>

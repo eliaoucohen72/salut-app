@@ -5,14 +5,14 @@ import Message from './Message';
 describe('Message', () => {
   it('aligne la bulle utilisateur à droite avec un style atténué', () => {
     render(<Message message={{ role: 'user', content: 'bonjour' }} />);
-    const bubble = screen.getByText('bonjour').parentElement;
+    const bubble = screen.getByText('bonjour').parentElement?.parentElement;
     expect(bubble?.className).toContain('ms-auto');
     expect(bubble?.className).toContain('bg-navy-800');
   });
 
   it('aligne la bulle coach à gauche avec un style accentué', () => {
     render(<Message message={{ role: 'assistant', content: 'salut' }} />);
-    const bubble = screen.getByText('salut').parentElement;
+    const bubble = screen.getByText('salut').parentElement?.parentElement;
     expect(bubble?.className).toContain('me-auto');
     expect(bubble?.className).toContain('border-accent');
   });

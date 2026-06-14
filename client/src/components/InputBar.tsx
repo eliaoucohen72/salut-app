@@ -33,7 +33,7 @@ export default function InputBar({ onSend, disabled }: InputBarProps) {
         onKeyDown={handleKeyDown}
         disabled={disabled}
         placeholder={t('chat.inputPlaceholder')}
-        className="flex-1 rounded-lg bg-navy-800 px-4 py-2 text-warm-white placeholder-warm-gray disabled:opacity-50"
+        className="flex-1 rounded-lg bg-light-surface border border-light-border px-4 py-2 text-light-text placeholder-light-text-muted disabled:opacity-50 dark:bg-navy-800 dark:border-transparent dark:text-warm-white dark:placeholder-warm-gray"
       />
       <button
         type="button"
