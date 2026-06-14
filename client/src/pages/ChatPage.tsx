@@ -29,10 +29,6 @@ export default function ChatPage() {
 
   useEffect(() => {
     if (!conversationId) {
-      const conversation = createConversation();
-      conversationRef.current = conversation;
-      setActiveConversationId(conversation.id);
-      navigate(`/chat/${conversation.id}`, { replace: true });
       return;
     }
 
@@ -72,11 +68,18 @@ export default function ChatPage() {
     void saveConversation(updated);
   };
 
-  const { messages, sendMessage, editMessage, isStreaming, error, clearError } = useChat(
+  const { messages, sendMessage, editMessage, startCheckIn, isStreaming, error, clearError } = useChat(
     initialMessages,
     handleExchangeComplete,
     activeId ?? undefined,
   );
+
+  useEffect(() => {
+    if (activeId && initialMessages.length === 0) {
+      void startCheckIn();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [activeId]);
 
   const handleNewConversation = () => {
     const conversation = createConversation();

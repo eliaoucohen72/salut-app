@@ -5,6 +5,7 @@ import ChatPage from './ChatPage';
 import type { Conversation, Message } from '../types';
 
 const sendMessage = vi.fn();
+const startCheckIn = vi.fn();
 const clearError = vi.fn();
 const setActiveConversationId = vi.fn();
 const getConversation = vi.fn();
@@ -15,6 +16,7 @@ const createConversation = vi.fn();
 let mockChatState: {
   messages: Message[];
   sendMessage: typeof sendMessage;
+  startCheckIn: typeof startCheckIn;
   isStreaming: boolean;
   error: string | null;
   clearError: typeof clearError;
@@ -61,7 +63,6 @@ function renderAt(path: string) {
   return render(
     <MemoryRouter initialEntries={[path]}>
       <Routes>
-        <Route path="/chat" element={<ChatPage />} />
         <Route path="/chat/:conversationId" element={<ChatPage />} />
       </Routes>
     </MemoryRouter>,
@@ -73,6 +74,7 @@ describe('ChatPage', () => {
 
   beforeEach(() => {
     sendMessage.mockClear();
+    startCheckIn.mockClear();
     clearError.mockClear();
     setActiveConversationId.mockClear();
     getConversation.mockReset();
@@ -93,24 +95,11 @@ describe('ChatPage', () => {
     mockChatState = {
       messages: [],
       sendMessage,
+      startCheckIn,
       isStreaming: false,
       error: null,
       clearError,
     };
-  });
-
-  it('accède à /chat (sans id) → crée une conversation et redirige vers /chat/:nouvelId', async () => {
-    renderAt('/chat');
-
-    await waitFor(() => {
-      expect(createConversation).toHaveBeenCalled();
-    });
-
-    await waitFor(() => {
-      expect(lastUseChatArgs[2]).toBe('new-id-1');
-    });
-
-    expect(setActiveConversationId).toHaveBeenCalledWith('new-id-1');
   });
 
   it('accède à /chat/:id avec un id existant → charge les messages de cette conversation', async () => {

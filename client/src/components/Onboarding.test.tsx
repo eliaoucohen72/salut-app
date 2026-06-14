@@ -55,17 +55,22 @@ describe('Onboarding', () => {
     fireEvent.change(weightInput, { target: { value: '65' } });
     fireEvent.click(screen.getByRole('button', { name: /suivant/i }));
 
-    // Étape 4: objectif
+    // Étape 4: taille
+    const heightInput = await screen.findByLabelText(/taille/i);
+    fireEvent.change(heightInput, { target: { value: '170' } });
+    fireEvent.click(screen.getByRole('button', { name: /suivant/i }));
+
+    // Étape 5: objectif
     const goalInput = await screen.findByLabelText(/objectif/i);
     fireEvent.change(goalInput, { target: { value: 'Perte de poids' } });
     fireEvent.click(screen.getByRole('button', { name: /suivant/i }));
 
-    // Étape 5: niveau d'activité
+    // Étape 6: niveau d'activité
     const activityInput = await screen.findByLabelText(/niveau d'activité/i);
     fireEvent.change(activityInput, { target: { value: 'Modéré' } });
     fireEvent.click(screen.getByRole('button', { name: /suivant/i }));
 
-    // Étape 6: restrictions alimentaires (dernière étape)
+    // Étape 7: restrictions alimentaires (dernière étape)
     const dietInput = await screen.findByLabelText(/restrictions alimentaires/i);
     fireEvent.change(dietInput, { target: { value: 'végétarien, sans gluten' } });
     fireEvent.click(screen.getByRole('button', { name: /valider/i }));
@@ -79,6 +84,7 @@ describe('Onboarding', () => {
       age: 30,
       gender: 'Femme',
       weight: 65,
+      height: 170,
       goal: 'Perte de poids',
       activityLevel: 'Modéré',
       dietaryRestrictions: ['végétarien', 'sans gluten'],

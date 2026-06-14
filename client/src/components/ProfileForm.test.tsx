@@ -1,5 +1,6 @@
 import { describe, it, expect, beforeEach } from 'vitest';
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
+import { MemoryRouter } from 'react-router-dom';
 import { AppContextProvider } from '../context/AppContext';
 import { localStorageRepository } from '../repositories/LocalStorageRepository';
 import ProfileForm from './ProfileForm';
@@ -7,7 +8,9 @@ import ProfileForm from './ProfileForm';
 function renderProfileForm() {
   return render(
     <AppContextProvider>
-      <ProfileForm />
+      <MemoryRouter>
+        <ProfileForm />
+      </MemoryRouter>
     </AppContextProvider>
   );
 }

@@ -1,5 +1,6 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
 import OnboardingPage from '../pages/OnboardingPage';
+import HomePage from '../pages/HomePage';
 import ChatPage from '../pages/ChatPage';
 import ProfilePage from '../pages/ProfilePage';
 import { useProfile } from '../hooks/useProfile';
@@ -19,7 +20,7 @@ export default function AppRoutes() {
       <Route path="/onboarding" element={<OnboardingPage />} />
       <Route
         path="/chat"
-        element={requiresOnboarding ? <Navigate to="/onboarding" replace /> : <ChatPage />}
+        element={requiresOnboarding ? <Navigate to="/onboarding" replace /> : <HomePage />}
       />
       <Route
         path="/chat/:conversationId"

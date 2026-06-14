@@ -5,7 +5,7 @@ import type { Profile } from '../schemas/profile.schema';
 import { useProfile } from '../hooks/useProfile';
 
 interface StepConfig {
-  key: 'age' | 'gender' | 'weight' | 'goal' | 'activityLevel' | 'dietaryRestrictions';
+  key: 'age' | 'gender' | 'weight' | 'height' | 'goal' | 'activityLevel' | 'dietaryRestrictions';
   type: 'number' | 'text';
 }
 
@@ -13,6 +13,7 @@ const STEPS: StepConfig[] = [
   { key: 'age', type: 'number' },
   { key: 'gender', type: 'text' },
   { key: 'weight', type: 'number' },
+  { key: 'height', type: 'number' },
   { key: 'goal', type: 'text' },
   { key: 'activityLevel', type: 'text' },
   { key: 'dietaryRestrictions', type: 'text' },

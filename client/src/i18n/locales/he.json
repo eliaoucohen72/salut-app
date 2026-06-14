@@ -25,6 +25,7 @@
       "age": { "label": "גיל", "question": "מה הגיל שלך?" },
       "gender": { "label": "מגדר", "question": "מה המגדר שלך?" },
       "weight": { "label": "משקל (ק\"ג)", "question": "מה המשקל הנוכחי שלך (בק\"ג)?" },
+      "height": { "label": "גובה (ס\"מ)", "question": "מה הגובה שלך (בס\"מ)?" },
       "goal": { "label": "מטרה", "question": "מה המטרה העיקרית שלך?" },
       "activityLevel": { "label": "רמת פעילות", "question": "מה רמת הפעילות שלך?" },
       "dietaryRestrictions": { "label": "הגבלות תזונתיות", "question": "האם יש לך הגבלות תזונתיות? (מופרדות בפסיקים)" }
@@ -41,15 +42,27 @@
       "activityLevel": "רמת פעילות",
       "age": "גיל",
       "weight": "משקל (ק\"ג)",
+      "height": "גובה (ס\"מ)",
       "dietaryRestrictions": "הגבלות תזונתיות"
     },
     "errors": {
       "agePositive": "הגיל חייב להיות מספר גדול מ-0",
-      "weightPositive": "המשקל חייב להיות מספר גדול מ-0"
+      "weightPositive": "המשקל חייב להיות מספר גדול מ-0",
+      "heightPositive": "הגובה חייב להיות מספר גדול מ-0"
+    },
+    "bmi": {
+      "label": "BMI",
+      "categories": {
+        "underweight": "תת משקל",
+        "normal": "משקל תקין",
+        "overweight": "עודף משקל",
+        "obese": "השמנה"
+      }
     }
   },
   "sidebar": {
     "title": "שיחות",
+    "profile": "הפרופיל שלי",
     "empty": "אין שיחות עדיין. התחל שיחה חדשה כדי להתחיל.",
     "deleteConversation": "מחק שיחה",
     "confirmDelete": {
@@ -58,6 +71,10 @@
       "confirm": "מחק",
       "cancel": "ביטול"
     }
+  },
+  "home": {
+    "welcomeTitle": "ברוך הבא ל-Life Coach AI",
+    "welcomeBody": "בחר שיחה מהרשימה או התחל שיחה חדשה כדי להתחיל לדבר עם המאמן שלך."
   },
   "chat": {
     "title": "צ'אט",

@@ -50,7 +50,7 @@ describe('AppRoutes', () => {
     renderAt('/chat');
 
     await waitFor(() => {
-      expect(screen.getByText('Envoyer')).toBeInTheDocument();
+      expect(screen.getByText('Bienvenue sur Life Coach AI')).toBeInTheDocument();
     });
     expect(screen.queryByText('Bienvenue !')).not.toBeInTheDocument();
   });

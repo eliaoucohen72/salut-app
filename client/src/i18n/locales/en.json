@@ -25,6 +25,7 @@
       "age": { "label": "Age", "question": "How old are you?" },
       "gender": { "label": "Gender", "question": "What is your gender?" },
       "weight": { "label": "Weight (kg)", "question": "What is your current weight (in kg)?" },
+      "height": { "label": "Height (cm)", "question": "What is your height (in cm)?" },
       "goal": { "label": "Goal", "question": "What is your main goal?" },
       "activityLevel": { "label": "Activity level", "question": "What is your activity level?" },
       "dietaryRestrictions": { "label": "Dietary restrictions", "question": "Do you have any dietary restrictions? (comma-separated)" }
@@ -41,15 +42,27 @@
       "activityLevel": "Activity level",
       "age": "Age",
       "weight": "Weight (kg)",
+      "height": "Height (cm)",
       "dietaryRestrictions": "Dietary restrictions"
     },
     "errors": {
       "agePositive": "Age must be a number greater than 0",
-      "weightPositive": "Weight must be a number greater than 0"
+      "weightPositive": "Weight must be a number greater than 0",
+      "heightPositive": "Height must be a number greater than 0"
+    },
+    "bmi": {
+      "label": "BMI",
+      "categories": {
+        "underweight": "Underweight",
+        "normal": "Normal weight",
+        "overweight": "Overweight",
+        "obese": "Obese"
+      }
     }
   },
   "sidebar": {
     "title": "Conversations",
+    "profile": "My profile",
     "empty": "No conversations yet. Start a new conversation to get going.",
     "deleteConversation": "Delete conversation",
     "confirmDelete": {
@@ -58,6 +71,10 @@
       "confirm": "Delete",
       "cancel": "Cancel"
     }
+  },
+  "home": {
+    "welcomeTitle": "Welcome to Life Coach AI",
+    "welcomeBody": "Select a conversation from the sidebar or start a new one to begin chatting with your coach."
   },
   "chat": {
     "title": "Chat",

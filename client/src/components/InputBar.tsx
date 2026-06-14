@@ -17,8 +17,8 @@ export default function InputBar({ onSend, disabled }: InputBarProps) {
     setValue('');
   };
 
-  const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
-    if (event.key === 'Enter') {
+  const handleKeyDown = (event: React.KeyboardEvent<HTMLTextAreaElement>) => {
+    if (event.key === 'Enter' && !event.shiftKey) {
       event.preventDefault();
       submit();
     }
@@ -26,14 +26,14 @@ export default function InputBar({ onSend, disabled }: InputBarProps) {
 
   return (
     <div className="flex gap-2 p-4">
-      <input
-        type="text"
+      <textarea
         value={value}
         onChange={(event) => setValue(event.target.value)}
         onKeyDown={handleKeyDown}
         disabled={disabled}
         placeholder={t('chat.inputPlaceholder')}
-        className="flex-1 rounded-lg bg-light-surface border border-light-border px-4 py-2 text-light-text placeholder-light-text-muted disabled:opacity-50 dark:bg-navy-800 dark:border-transparent dark:text-warm-white dark:placeholder-warm-gray"
+        rows={1}
+        className="flex-1 resize-none rounded-lg bg-light-surface border border-light-border px-4 py-2 text-light-text placeholder-light-text-muted disabled:opacity-50 dark:bg-navy-800 dark:border-transparent dark:text-warm-white dark:placeholder-warm-gray"
       />
       <button
         type="button"

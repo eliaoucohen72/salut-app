@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useNavigate } from 'react-router-dom';
 import { ZodError } from 'zod';
 import type { Profile } from '../schemas/profile.schema';
 import { useProfile } from '../hooks/useProfile';
+import { calculateBmi, getBmiCategory } from '../lib/bmi';
 
 const TEXT_FIELDS: ('name' | 'gender' | 'goal' | 'activityLevel')[] = [
   'name',
@@ -11,15 +13,17 @@ const TEXT_FIELDS: ('name' | 'gender' | 'goal' | 'activityLevel')[] = [
   'activityLevel',
 ];
 
-const NUMBER_FIELDS: ('age' | 'weight')[] = ['age', 'weight'];
+const NUMBER_FIELDS: ('age' | 'weight' | 'height')[] = ['age', 'weight', 'height'];
 
 const ERROR_KEYS: Record<string, string> = {
   age: 'profile.errors.agePositive',
   weight: 'profile.errors.weightPositive',
+  height: 'profile.errors.heightPositive',
 };
 
 export default function ProfileForm() {
   const { t } = useTranslation();
+  const navigate = useNavigate();
   const { profile, isLoading, saveProfile } = useProfile();
   const [formData, setFormData] = useState<Partial<Profile>>(profile ?? {});
   const [dietaryInput, setDietaryInput] = useState(
@@ -40,7 +44,7 @@ export default function ProfileForm() {
     setFormData((prev) => ({ ...prev, [key]: value.trim() || undefined }));
   };
 
-  const handleNumberChange = (key: 'age' | 'weight', value: string) => {
+  const handleNumberChange = (key: 'age' | 'weight' | 'height', value: string) => {
     const trimmed = value.trim();
     const parsed = trimmed === '' ? undefined : Number(trimmed);
     setFormData((prev) => ({
@@ -68,6 +72,7 @@ export default function ProfileForm() {
       await saveProfile(updated as Profile);
       setFormData(updated);
       setShowConfirmation(true);
+      navigate('/chat');
     } catch (err) {
       if (err instanceof ZodError) {
         const fieldErrors: Record<string, string> = {};
@@ -140,6 +145,24 @@ export default function ProfileForm() {
             <p className="mt-1 text-sm text-red-400">{errors.dietaryRestrictions}</p>
           )}
         </div>
+
+        {formData.weight && formData.height && (
+          <div
+            data-testid="bmi-result"
+            className="mb-4 px-3 py-2 rounded bg-light-surface border border-light-border dark:bg-navy-950 dark:border-navy-700"
+          >
+            {(() => {
+              const bmi = calculateBmi(formData.weight as number, formData.height as number);
+              const category = getBmiCategory(bmi);
+              return (
+                <p className="text-sm">
+                  {t('profile.bmi.label')}: <span className="font-semibold">{bmi.toFixed(1)}</span>{' '}
+                  ({t(`profile.bmi.categories.${category}`)})
+                </p>
+              );
+            })()}
+          </div>
+        )}
 
         <button
           type="submit"

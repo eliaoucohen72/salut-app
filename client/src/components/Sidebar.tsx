@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
 import type { Conversation } from '../types';
 import ConfirmDialog from './ConfirmDialog';
 
@@ -76,6 +77,15 @@ export default function Sidebar({
           </ul>
         )}
       </div>
+      <div className="border-t border-light-border p-2 dark:border-navy-700">
+        <Link
+          to="/profile"
+          className="block rounded-lg px-3 py-2 text-sm text-light-text hover:border-accent dark:text-warm-white"
+        >
+          {t('sidebar.profile')}
+        </Link>
+      </div>
+
       {confirmDeleteId !== null && (
         <ConfirmDialog
           title={t('sidebar.confirmDelete.title')}

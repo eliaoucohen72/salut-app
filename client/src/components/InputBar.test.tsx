@@ -44,4 +44,16 @@ describe('InputBar', () => {
 
     expect(onSend).toHaveBeenCalledWith('salut');
   });
+
+  it("n'envoie pas le message avec Shift+Entrée et permet le saut de ligne", () => {
+    const onSend = vi.fn();
+    render(<InputBar onSend={onSend} disabled={false} />);
+
+    const input = screen.getByRole('textbox');
+    fireEvent.change(input, { target: { value: 'salut' } });
+    fireEvent.keyDown(input, { key: 'Enter', shiftKey: true });
+
+    expect(onSend).not.toHaveBeenCalled();
+    expect(input).toHaveValue('salut');
+  });
 });

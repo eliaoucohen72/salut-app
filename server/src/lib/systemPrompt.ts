@@ -12,6 +12,7 @@ export const buildSystemPrompt = (profile: Profile): string => {
     `age: ${formatField(profile.age)}`,
     `gender: ${formatField(profile.gender)}`,
     `weight: ${formatField(profile.weight)}`,
+    `height: ${formatField(profile.height)}`,
     `goal: ${formatField(profile.goal)}`,
     `activityLevel: ${formatField(profile.activityLevel)}`,
     `dietaryRestrictions: ${formatDietaryRestrictions(profile.dietaryRestrictions)}`,

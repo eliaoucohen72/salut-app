@@ -1,7 +1,13 @@
 import { describe, it, expect, vi } from 'vitest';
 import { render, screen, fireEvent } from '@testing-library/react';
+import { MemoryRouter } from 'react-router-dom';
+import type { ReactElement } from 'react';
 import Sidebar from './Sidebar';
 import type { Conversation } from '../types';
+
+function renderWithRouter(ui: ReactElement) {
+  return render(<MemoryRouter>{ui}</MemoryRouter>);
+}
 
 const conversations: Conversation[] = [
   {
@@ -22,7 +28,7 @@ const conversations: Conversation[] = [
 
 describe('Sidebar', () => {
   it('affiche les conversations triées par updatedAt décroissant avec une date formatée', () => {
-    render(
+    renderWithRouter(
       <Sidebar
         conversations={conversations}
         activeConversationId={null}
@@ -38,7 +44,7 @@ describe('Sidebar', () => {
   });
 
   it('marque comme actif l\'élément correspondant à activeConversationId', () => {
-    render(
+    renderWithRouter(
       <Sidebar
         conversations={conversations}
         activeConversationId="conv-1"
@@ -57,7 +63,7 @@ describe('Sidebar', () => {
 
   it('clic sur une conversation appelle onSelectConversation avec son id', () => {
     const onSelectConversation = vi.fn();
-    render(
+    renderWithRouter(
       <Sidebar
         conversations={conversations}
         activeConversationId={null}
@@ -74,7 +80,7 @@ describe('Sidebar', () => {
 
   it('clic sur "Nouvelle conversation" appelle onNewConversation', () => {
     const onNewConversation = vi.fn();
-    render(
+    renderWithRouter(
       <Sidebar
         conversations={conversations}
         activeConversationId={null}
@@ -90,7 +96,7 @@ describe('Sidebar', () => {
   });
 
   it('affiche un message d\'état vide quand conversations est vide, sans erreur', () => {
-    render(
+    renderWithRouter(
       <Sidebar
         conversations={[]}
         activeConversationId={null}
@@ -109,7 +115,7 @@ describe('Sidebar', () => {
   it('clic sur l\'icône poubelle ouvre la confirmation sans appeler onSelectConversation ni onDeleteConversation', () => {
     const onSelectConversation = vi.fn();
     const onDeleteConversation = vi.fn();
-    render(
+    renderWithRouter(
       <Sidebar
         conversations={conversations}
         activeConversationId={null}
@@ -129,7 +135,7 @@ describe('Sidebar', () => {
 
   it('clic sur confirmer dans le dialogue appelle onDeleteConversation avec l\'id et ferme le dialogue', () => {
     const onDeleteConversation = vi.fn();
-    render(
+    renderWithRouter(
       <Sidebar
         conversations={conversations}
         activeConversationId={null}
@@ -148,7 +154,7 @@ describe('Sidebar', () => {
 
   it('clic sur annuler dans le dialogue ferme le dialogue sans appeler onDeleteConversation', () => {
     const onDeleteConversation = vi.fn();
-    render(
+    renderWithRouter(
       <Sidebar
         conversations={conversations}
         activeConversationId={null}
